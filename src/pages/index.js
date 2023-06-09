@@ -7,8 +7,13 @@ export const ActiveProducts = lazy(() => import("./pruducts/activeProduct"));
 export const DisActiveProducts = lazy(() =>
   import("./pruducts/DisActiveProducts")
 );
-export const Baner = lazy(() => import("./carusel/Baner"));
-export const Carusel = lazy(() => import("./carusel/carusel"));
+export const Baner = lazy(() => import("./restaurant-carusel/Baner"));
+export const Carusel = lazy(() => import("./restaurant-carusel/carusel"));
+
+export const MarketBaner = lazy(() => import("./market-carusel/m-baner"));
+export const MarketCarousel = lazy(() => import("./market-carusel/m-carusel"));
+export const MarketCardCarousel = lazy(() => import("./market-carusel/m-card-carusel"));
+
 export const NonActiveUsers = lazy(() =>
   import("./nonActiveUsers/nonActiveUsers")
 );

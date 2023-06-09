@@ -27,7 +27,7 @@ const Banner = () => {
   };
   const getData = () => {
     axiosInstance
-      .get("/api/banner/all")
+      .get("/api/f-banner/all")
       .then((data) => {
         console.log(data.data);
         setData(data.data);
@@ -96,7 +96,7 @@ const Banner = () => {
 
   const DeleteCategory = (id) => {
     axiosInstance
-      .delete("/api/banner/destroy/" + id)
+      .delete("/api/f-banner/destroy/" + id)
       .then((data) => {
         message.success("Öçürildi!");
         getData();
@@ -128,7 +128,7 @@ const Banner = () => {
         formData.append("img", item);
       });
       axiosInstance
-        .post("/api/banner/create", formData)
+        .post("/api/f-banner/create", formData)
         .then((data) => {
           message.success("Maglumatlar döredildi!");
           getData();

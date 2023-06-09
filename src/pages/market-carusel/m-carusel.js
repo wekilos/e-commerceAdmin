@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { SebedimContext } from "../../context/sebedim";
 import DropFileInput from "./dropFile";
 
-const Carousel = () => {
+const MarketCarousel = () => {
   const { dil } = useContext(SebedimContext);
   const history = useHistory();
   const [data, setData] = useState([]);
@@ -27,7 +27,7 @@ const Carousel = () => {
   };
   const getData = () => {
     axiosInstance
-      .get("/api/carousel/all")
+      .get("/api/e-carousel/all")
       .then((data) => {
         console.log(data.data);
         setData(data.data);
@@ -96,7 +96,7 @@ const Carousel = () => {
 
   const DeleteCategory = (id) => {
     axiosInstance
-      .delete("/api/carousel/destroy/" + id)
+      .delete("/api/e-carousel/destroy/" + id)
       .then((data) => {
         message.success("Öçürildi!");
         getData();
@@ -109,7 +109,7 @@ const Carousel = () => {
 
   const editData = () => {
     axiosInstance
-      .patch("/api/carousel/update", order)
+      .patch("/api/e-carousel/update", order)
       .then((data) => {
         message.success("Maglumatlar Uytgedildi!");
         getData();
@@ -128,7 +128,7 @@ const Carousel = () => {
         formData.append("img", item);
       });
       axiosInstance
-        .post("/api/carousel/create", formData)
+        .post("/api/e-carousel/create", formData)
         .then((data) => {
           message.success("Maglumatlar döredildi!");
           getData();
@@ -245,4 +245,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default MarketCarousel;

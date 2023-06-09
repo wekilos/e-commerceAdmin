@@ -35,23 +35,24 @@ const Headers = () => {
       style={{ position: "fixed", background: "white" }}
     >
       <div className="flex justify-start pl-[50px]">
-        <div className="bg-white h-[60px] mr-[200px]" align="center">
-          <img className="object-contain h-[50px] pt-2" src={logo} alt="logo" />
+        <div style={{display:"inline-flex",marginBottom:"5px"}} className="bg-white h-[60px] mr-[200px]" align="center">
+          <img style={{marginTop:"5px"}} className="object-contain h-[50px] pt-2" src={logo} alt="logo" />
+            <h1 style={{color:"#2B975E",paddingLeft:"5px",fontWeight:"600"}}>Söwda onlaýn</h1>
         </div>
       </div>
       <div className="profile">
         <Dropdown overlay={profile_menu}>
           <div className="ant-dropdown-link" onClick={Logout}>
-            <UserOutlined style={{ color: "black" }} />
+            <UserOutlined style={{ color:"black", }} />
           </div>
         </Dropdown>
       </div>
 
       <div
-        style={{ color: "black" }}
+        style={{ color:"black" }}
         onMouseEnter={() => setLang(true)}
         onMouseOut={() => setLang(false)}
-        className="absolute top-0 right-[60px] cursor-pointer h-[50px]"
+        className="absolute top-0 right-[60px] cursor-pointer h-[50px],"
       >
         {dil === "tm" ? "TM" : dil === "ru" ? "RU" : "EN"}
       </div>
@@ -66,21 +67,21 @@ const Headers = () => {
         <div
           onClick={() => ChangeDil("tm")}
           className="hover:text-black"
-          style={{ color: "black" }}
+          style={{ color:"black" }}
         >
           TM
         </div>
         <div
           onClick={() => ChangeDil("ru")}
           className="hover:text-black"
-          style={{ color: "black" }}
+          style={{ color:"black" }}
         >
           RU
         </div>
         <div
           onClick={() => ChangeDil("en")}
           className="hover:text-black"
-          style={{ color: "black" }}
+          style={{ color:"black"}}
         >
           EN
         </div>

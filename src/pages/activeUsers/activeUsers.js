@@ -38,32 +38,43 @@ const Orders = () => {
     const columns = [
         {
             title:
-                dil === "tm"
-                    ? "A.A.Familyasy"
-                    : dil === "ru"
-                    ? "А.А.Фамиля"
-                    : "N.Lastname",
-            dataIndex: "fname",
+                dil === "tm" ? "ID" : dil === "ru" ? "ID" : "ID",
+            dataIndex: "id",
         },
         {
             title:
                 dil === "tm"
-                    ? "Edara Ady"
+                    ? "Ady"
                     : dil === "ru"
-                    ? "Название организации"
-                    : "Company name",
+                    ? "Имя"
+                    : "First name",
             dataIndex: "name",
-            render: (text, record) => <div>{record?.companyName}</div>,
         },
         {
             title:
-                dil === "tm" ? "E-pocta" : dil === "ru" ? "Эл. адрес" : "Email",
-            dataIndex: "email",
+                dil === "tm"
+                    ? "Familiýasy"
+                    : dil === "ru"
+                    ? "Фамилия"
+                    : "Last name",
+            dataIndex: "lastname",
         },
         {
             title:
                 dil === "tm" ? "Telefon" : dil === "ru" ? "Телефон" : "Phone",
-            dataIndex: "phoneNumber",
+            dataIndex: "phone_number",
+        },
+        {
+            title:
+                dil === "tm" ? "Doglan senesi" : dil === "ru" ? "Дата рождения" : "Birthday",
+            dataIndex: "birthday",
+            // render:(text,record)=>(
+            //     <div>
+            //         {
+            //             record?.birthday?.slice(0, 10) 
+            //         }
+            //     </div>
+            // )
         },
 
         {
@@ -104,7 +115,7 @@ const Orders = () => {
                     </Popconfirm>
                 </>
             ),
-        },
+        }
     ];
 
     const Reject = (id) => {
@@ -119,6 +130,7 @@ const Orders = () => {
                 message.warn("Gaytadan Barlan!");
             });
     };
+
 
     return (
         <>

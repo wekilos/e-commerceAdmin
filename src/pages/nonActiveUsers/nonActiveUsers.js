@@ -23,7 +23,7 @@ const Orders = () => {
         axiosInstance
             .get("/api/user/all?active=false")
             .then((data) => {
-                console.log(data.data);
+                console.log(data.data); 
                 setData(data.data);
             })
             .catch((err) => {
@@ -34,32 +34,43 @@ const Orders = () => {
     const columns = [
         {
             title:
-                dil === "tm"
-                    ? "A.A.Familyasy"
-                    : dil === "ru"
-                    ? "А.А.Фамиля"
-                    : "N.Lastname",
-            dataIndex: "fname",
+                dil === "tm" ? "ID" : dil === "ru" ? "ID" : "ID",
+            dataIndex: "id",
         },
         {
             title:
                 dil === "tm"
-                    ? "Edara Ady"
+                    ? "Ady"
                     : dil === "ru"
-                    ? "Название организации"
-                    : "Company name",
+                    ? "Имя"
+                    : "First name",
             dataIndex: "name",
-            render: (text, record) => <div>{record?.companyName}</div>,
         },
         {
             title:
-                dil === "tm" ? "E-pocta" : dil === "ru" ? "Эл. адрес" : "Email",
-            dataIndex: "email",
+                dil === "tm"
+                    ? "Familiýasy"
+                    : dil === "ru"
+                    ? "Фамилия"
+                    : "Last name",
+            dataIndex: "lastname",
         },
         {
             title:
                 dil === "tm" ? "Telefon" : dil === "ru" ? "Телефон" : "Phone",
-            dataIndex: "phoneNumber",
+            dataIndex: "phone_number",
+        },
+        {
+            title:
+                dil === "tm" ? "Doglan senesi" : dil === "ru" ? "Дата рождения" : "Birthday",
+            dataIndex: "birthday",
+            render:(text,record)=>(
+                <div>
+                    {
+                           record?.birthday?.slice(0, 10) 
+                    }
+                </div>
+            )
         },
 
         {
@@ -94,8 +105,45 @@ const Orders = () => {
                             {dil === "tm"
                                 ? "işjeň"
                                 : dil === "ru"
-                                ? "активен"
+                                ? "актив"
                                 : "active"}
+                        </Button>
+                    </Popconfirm>
+                </>
+            ),
+        },
+
+        {
+            title:
+                dil === "tm" ? "Öçürmek" : dil === "ru" ? "Удалить" : "Delete", 
+            render: (text, record) => (
+                <>
+                    <Popconfirm
+                        placement="top"
+                        title={
+                            dil === "tm"
+                                ? "Ynanýarsyňyzmy?"
+                                : dil === "ru"
+                                ? "Уверены ли вы?"
+                                : "Are you sure?"
+                        }
+                        onConfirm={() => Delete(record.id)}
+                        okText={
+                            dil === "tm" ? "Howwa" : dil === "ru" ? "Да" : "Yes"
+                        }
+                        cancelText={
+                            dil === "tm" ? "ýok" : dil === "ru" ? "Нет" : "No"
+                        }
+                    >
+                        <Button
+                            type="danger"
+                            style={{ borderRadius: "7px", marginLeft: "10px" }}
+                        >
+                            {dil === "tm"
+                                ? "Öçürmek"
+                                : dil === "ru"
+                                ? "Удалить"
+                                : "Delete"}
                         </Button>
                     </Popconfirm>
                 </>
@@ -115,6 +163,19 @@ const Orders = () => {
                 message.warn("Gaytadan Barlan!");
             });
     };
+
+    const Delete = (id) => {
+        axiosInstance
+            .patch('/api/user/delete/' + id)
+            .then((data) => {
+                message.success('Öçürildi');
+                getData();
+            })
+            .catch((error) => {
+                console.log(error)
+                message.warn('Gaýtadan barlaň')
+            })
+    }
 
     return (
         <>

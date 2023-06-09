@@ -108,7 +108,7 @@ const SiderDemo = (props) => {
                     </Menu.Item>
                 </SubMenu> */}
 
-        <SubMenu
+        {/* <SubMenu
           key="sub6"
           title={
             <span className="menuitem">
@@ -131,9 +131,9 @@ const SiderDemo = (props) => {
                 : "Category"}
             </Link>
           </Menu.Item>
-        </SubMenu>
+        </SubMenu> */}
 
-        <SubMenu
+        {/* <SubMenu
           key="mesure"
           title={
             <span className="menuitem">
@@ -174,9 +174,9 @@ const SiderDemo = (props) => {
               {dil === "tm" ? "Kategoriýa" : dil === "ru" ? "Цвет" : "Color"}
             </Link>
           </Menu.Item>
-        </SubMenu>
+        </SubMenu> */}
 
-        <SubMenu
+        {/* <SubMenu
           key="sub8"
           title={
             <span className="menuitem">
@@ -195,7 +195,7 @@ const SiderDemo = (props) => {
                 : " products"}
             </Link>
           </Menu.Item>
-          {/* <Menu.Item className="menuitem menuitem2" key="217">
+          <Menu.Item className="menuitem menuitem2" key="217">
                         <Link to="/DisActiveProducts">
                             {dil === "tm"
                                 ? "Disactive önümler"
@@ -203,8 +203,8 @@ const SiderDemo = (props) => {
                                 ? "Неактивные продукты"
                                 : "Disactive products"}
                         </Link>
-                    </Menu.Item> */}
-        </SubMenu>
+                    </Menu.Item>
+        </SubMenu> */}
 
         <SubMenu
           key="sub10"
@@ -212,22 +212,53 @@ const SiderDemo = (props) => {
             <span className="menuitem">
               <span>
                 {dil === "tm"
-                  ? "Baner we carusel"
+                  ? "Restoran"
                   : dil === "ru"
-                  ? "Банер и Карусел"
-                  : "Baner and carusel"}
+                  ? "Ресторан"
+                  : "Restaurant"}
               </span>
             </span>
           }
         >
           <Menu.Item className="menuitem menuitem2" key="Baner">
             <Link to="/baner">
-              {dil === "tm" ? "Baner" : dil === "ru" ? "Банер" : "Baner"}
+              {dil === "tm" ? "Baner" : dil === "ru" ? "Банер" : "Banner"}
             </Link>
           </Menu.Item>
           <Menu.Item className="menuitem menuitem2" key="12">
             <Link to="/carusel">
-              {dil === "tm" ? "Karusel" : dil === "ru" ? "Карусел" : "Carusel"}
+              {dil === "tm" ? "Karusel" : dil === "ru" ? "Карусел" : "Carousel"}
+            </Link>
+          </Menu.Item>
+        </SubMenu>
+
+        <SubMenu
+          key="market"
+          title={
+            <span className="menuitem">
+              <span>
+                {dil === "tm"
+                  ? "Market"
+                  : dil === "ru"
+                  ? "Маркет"
+                  : "Market"}
+              </span>
+            </span>
+          }
+        >
+          <Menu.Item className="menuitem menuitem2" key="m-baner">
+            <Link to="/m-baner">
+              {dil === "tm" ? "Baner" : dil === "ru" ? "Банер" : "Banner"}
+            </Link>
+          </Menu.Item>
+          <Menu.Item className="menuitem menuitem2" key="m-carusel">
+            <Link to="/m-carusel">
+              {dil === "tm" ? "Karusel" : dil === "ru" ? "Карусел" : "Carousel"}
+            </Link>
+          </Menu.Item>
+          <Menu.Item className="menuitem menuitem2" key="m-card-carusel">
+            <Link to="/card-carusel">
+              {dil === "tm" ? "Kard-Karusel" : dil === "ru" ? "Карт-Карусел" : "Card-Carousel"}
             </Link>
           </Menu.Item>
         </SubMenu>
@@ -239,10 +270,10 @@ const SiderDemo = (props) => {
               {/* <HomeOutlined /> */}
               <span>
                 {dil === "tm"
-                  ? "Habarlar"
+                  ? "Teklipler"
                   : dil === "ru"
-                  ? "Сообщения"
-                  : "Messages"}
+                  ? "Обратная связь"
+                  : "Feedback"}
               </span>
             </span>
           }
@@ -256,7 +287,7 @@ const SiderDemo = (props) => {
                 : "Recived messages"}
             </Link>
           </Menu.Item>
-          <Menu.Item className="menuitem menuitem2" key="20">
+          {/* <Menu.Item className="menuitem menuitem2" key="20">
             <Link to="/sendPost">
               {dil === "tm"
                 ? "Ugradylan Habarlar"
@@ -264,10 +295,10 @@ const SiderDemo = (props) => {
                 ? "Отправка сообщений"
                 : "Send messages"}
             </Link>
-          </Menu.Item>
+          </Menu.Item> */}
         </SubMenu>
 
-        {/* <SubMenu
+        <SubMenu
                     key="sub7"
                     title={
                         <span>
@@ -299,7 +330,7 @@ const SiderDemo = (props) => {
                                 : "Disactive Users"}
                         </Link>
                     </Menu.Item>
-                </SubMenu>  */}
+        </SubMenu> 
       </Menu>
 
       <div className="admin-footer">

@@ -10,9 +10,12 @@ import {
   Login,
   ActiveProducts,
   DisActiveProducts,
-  ContactResponse,
+  // ContactResponse,
   Baner,
   Carusel,
+  MarketBaner,
+  MarketCarousel,
+  MarketCardCarousel,
   Width,
   Length,
   Material,
@@ -47,12 +50,12 @@ const App = () => {
               path="/posts"
               exact
             />
-            <PrivateRoute
+            {/* <PrivateRoute
               restricted={false}
               component={ContactResponse}
               path="/sendPost"
               exact
-            />
+            /> */}
             <PrivateRoute
               restricted={false}
               component={Contact}
@@ -83,7 +86,24 @@ const App = () => {
               path="/carusel"
               exact
             />
-
+            <PrivateRoute
+              restricted={false}
+              component={MarketBaner}
+              path="/m-baner"
+              exact
+            />
+            <PrivateRoute
+              restricted={false}
+              component={MarketCarousel}
+              path="/m-carusel"
+              exact
+            />
+            <PrivateRoute
+              restricted={false}
+              component={MarketCardCarousel}
+              path="/card-carusel"
+              exact
+            />
             <PrivateRoute
               restricted={false}
               component={NonActiveUsers}

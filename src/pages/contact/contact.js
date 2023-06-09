@@ -24,7 +24,7 @@ const Orders = () => {
 
     const getData = () => {
         axiosInstance
-            .get("/api/contact/all?came=true")
+            .get("/api/feedBack/all")
             .then((data) => {
                 console.log(data.data);
                 setData(data.data);
@@ -36,100 +36,78 @@ const Orders = () => {
 
     const columns = [
         {
-            title: dil === "tm" ? "Tema" : dil === "ru" ? "Тема" : "Theme",
-            dataIndex: "subject",
+            title: dil === "tm" ? "ID" : dil === "ru" ? "ID" : "ID",
+            dataIndex: "id",
         },
         {
-            title: dil === "tm" ? "Tekst" : dil === "ru" ? "Текст" : "Text",
-            dataIndex: "text",
-        },
-        {
-            title: dil === "tm" ? "Ady" : dil === "ru" ? "Имя" : "Name",
-            dataIndex: "name",
+            title: dil === "tm" ? "Doly ady" : dil === "ru" ? "Полное имя" : "Fullname",
+            dataIndex: "fullname",
         },
         {
             title:
                 dil === "tm" ? "E-pocta" : dil === "ru" ? "Эл. адрес" : "Email",
             dataIndex: "email",
         },
+        {
+            title:
+                dil === "tm" ? "Tekst" : dil === "ru" ? "Текст" : "Text",
+            dataIndex: "text",
+        },
 
         {
             title:
                 dil === "tm" ? "Hereket" : dil === "ru" ? "Действие" : "Action",
             render: (text, record) => (
-                <div className="flex">
+                <>
                     {/* <Popconfirm placement="top" title={"Are you sure"} onConfirm={handleConfirm} okText="Yes" cancelText="No">  */}
-                    <Button
-                        onClick={() => {
-                            setOpenChange(true);
-                            setOrder(record);
-                        }}
-                        type="primary"
-                        style={{ borderRadius: "7px" }}
-                    >
-                        {dil === "tm"
-                            ? "Maglumat"
-                            : dil === "ru"
-                            ? "Информация"
-                            : "Information"}
-                    </Button>
+                    {/* <Button onClick={()=>{setOpenChange(true);setOrder(record)}} type="primary" style={{borderRadius: "7px"}}>Maglumat</Button> */}
                     {/* </Popconfirm> */}
-                    {/* <Popconfirm placement="top" title={"Are you sure"} onConfirm={()=>Reject(record.id)} okText="Yes" cancelText="No">  */}
-                    <Button
-                        onClick={() => {
-                            setJogap(true);
-                            setMessageId(record.id);
-                        }}
-                        type="primary"
-                        style={{ borderRadius: "7px", marginLeft: "10px" }}
+                    <Popconfirm
+                        placement="top"
+                        title={
+                            dil === "tm"
+                                ? "Ynanýarsyňyzmy?"
+                                : dil === "ru"
+                                ? "Уверены ли вы?"
+                                : "Are you sure?"
+                        }
+                        onConfirm={() => Delete(record.id)}
+                        okText={
+                            dil === "tm" ? "Howwa" : dil === "ru" ? "Да" : "Yes"
+                        }
+                        cancelText={
+                            dil === "tm" ? "ýok" : dil === "ru" ? "Нет" : "No"
+                        }
                     >
-                        {dil === "tm"
-                            ? "Jogap"
-                            : dil === "ru"
-                            ? "Отвечать"
-                            : "Answer"}
-                    </Button>
-                    {/* </Popconfirm> */}
-                </div>
+                        <Button
+                            type="danger"
+                            style={{ borderRadius: "7px", marginLeft: "10px" }}
+                        >
+                            {dil === "tm"
+                                ? "Öçürmek"
+                                : dil === "ru"
+                                ? "Удалить"
+                                : "Delete"}
+                        </Button>
+                    </Popconfirm>
+                </>
             ),
-        },
+        }
+        
     ];
 
-    const Reject = (id) => {
-        axiosInstance
-            .patch("/api/user/disActive/" + id)
-            .then((data) => {
-                message.success("Dis Aktiwe Edildi!");
-                getData();
-            })
-            .catch((err) => {
-                console.log(err);
-                message.warn("Gaytadan Barlan!");
-            });
-    };
 
-    const SendResponse = () => {
-        console.log(messageId, subject, text);
-        if (subject.length > 0 && text.length > 0) {
-            axiosInstance
-                .post("/api/contact/response", {
-                    subject: subject,
-                    text: text,
-                    messageId: messageId,
-                })
-                .then((data) => {
-                    message.success("Jogap berildi!");
-                    setJogap(false);
-                })
-                .catch((err) => {
-                    console.log(err);
-                    message.warn("Gaytadan Barlan!");
-                });
-        } else {
-            message.warn("Maglumatlary doly Girizin!");
-        }
-    };
-
+    const Delete = (id) => {
+        axiosInstance.delete('/api/feedBack/destroy/' + id)
+        .then((data) => {
+            message.success('Successfully deleted!!!')
+            getData()
+        })
+        .catch((error) => {
+            console.log(error)
+            message.warn('Try again')
+        })
+    }
     return (
         <>
             <Drawer
@@ -272,7 +250,7 @@ const Orders = () => {
                     </div>
                     <div className="flex justify-start   mt-[20px]">
                         <button
-                            onClick={() => SendResponse()}
+                            // onClick={() => SendResponse()}
                             className="font-sans md:text-[18px] text-[16px] h-[50px] md:w-[90%] w-full bg-blue text-[#fff] rounded-[5px]"
                         >
                             {dil === "tm"
