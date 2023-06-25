@@ -4,6 +4,7 @@ import { axiosInstance, BASE_URL } from "../../utils/axiosIntance";
 import { useHistory } from "react-router-dom";
 import { SebedimContext } from "../../context/sebedim";
 import DropFileInput from "./dropFile";
+import { BASE_URL_IMG } from "../../utils/axiosIntance";
 
 const MarketCardCarousel = () => {
   const { dil } = useContext(SebedimContext);
@@ -29,7 +30,7 @@ const MarketCardCarousel = () => {
     axiosInstance
       .get("/api/e-banner-card/all")
       .then((data) => {
-        console.log(data.data);
+        console.log("market card", data.data);
         setData(data.data);
       })
       .catch((err) => {
@@ -43,13 +44,18 @@ const MarketCardCarousel = () => {
       dataIndex: "id",
     },
     {
-      title: dil === "tm" ? "Kard-Karusel" : dil === "ru" ? "Карт-Карусель" : "Card-Carousel",
+      title:
+        dil === "tm"
+          ? "Kard-Karusel"
+          : dil === "ru"
+          ? "Карт-Карусель"
+          : "Card-Carousel",
       dataIndex: "name_ru",
       render: (text, record) => (
         <div>
           <img
             className="w-[200px] object-contain"
-            src={BASE_URL + record.img}
+            src={BASE_URL_IMG + record.img}
             alt=""
           />
         </div>
@@ -215,7 +221,11 @@ const MarketCardCarousel = () => {
       </Drawer>
       <div className="w-full h-[50px] p-0 flex justify-between ">
         <h2 className="leading-[50px] ml-[50px] text-sans text-[24px]">
-          {dil === "tm" ? "Kard-Karusel" : dil === "ru" ? "Карт-Карусель" : "Card-Carousel"}
+          {dil === "tm"
+            ? "Kard-Karusel"
+            : dil === "ru"
+            ? "Карт-Карусель"
+            : "Card-Carousel"}
         </h2>
         <Button
           onClick={() => {
