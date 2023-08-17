@@ -220,14 +220,14 @@ const SiderDemo = (props) => {
             </span>
           }
         >
-          <Menu.Item className="menuitem menuitem2" key="Baner">
-            <Link to="/baner">
-              {dil === "tm" ? "Baner" : dil === "ru" ? "Банер" : "Banner"}
-            </Link>
-          </Menu.Item>
           <Menu.Item className="menuitem menuitem2" key="12">
             <Link to="/carusel">
               {dil === "tm" ? "Karusel" : dil === "ru" ? "Карусел" : "Carousel"}
+            </Link>
+          </Menu.Item>
+          <Menu.Item className="menuitem menuitem2" key="Baner">
+            <Link to="/baner">
+              {dil === "tm" ? "Baner" : dil === "ru" ? "Банер" : "Banner"}
             </Link>
           </Menu.Item>
         </SubMenu>
@@ -237,28 +237,29 @@ const SiderDemo = (props) => {
           title={
             <span className="menuitem">
               <span>
-                {dil === "tm"
-                  ? "Market"
-                  : dil === "ru"
-                  ? "Маркет"
-                  : "Market"}
+                {dil === "tm" ? "Market" : dil === "ru" ? "Маркет" : "Market"}
               </span>
             </span>
           }
         >
-          <Menu.Item className="menuitem menuitem2" key="m-baner">
-            <Link to="/m-baner">
-              {dil === "tm" ? "Baner" : dil === "ru" ? "Банер" : "Banner"}
-            </Link>
-          </Menu.Item>
           <Menu.Item className="menuitem menuitem2" key="m-carusel">
             <Link to="/m-carusel">
               {dil === "tm" ? "Karusel" : dil === "ru" ? "Карусел" : "Carousel"}
             </Link>
           </Menu.Item>
+          <Menu.Item className="menuitem menuitem2" key="m-baner">
+            <Link to="/m-baner">
+              {dil === "tm" ? "Baner" : dil === "ru" ? "Банер" : "Banner"}
+            </Link>
+          </Menu.Item>
+
           <Menu.Item className="menuitem menuitem2" key="m-card-carusel">
             <Link to="/card-carusel">
-              {dil === "tm" ? "Kard-Karusel" : dil === "ru" ? "Карт-Карусел" : "Card-Carousel"}
+              {dil === "tm"
+                ? "Kard-Karusel"
+                : dil === "ru"
+                ? "Карт-Карусел"
+                : "Card-Carousel"}
             </Link>
           </Menu.Item>
         </SubMenu>
@@ -299,38 +300,38 @@ const SiderDemo = (props) => {
         </SubMenu>
 
         <SubMenu
-                    key="sub7"
-                    title={
-                        <span>
-                            <span className="menuitem">
-                                {dil === "tm"
-                                    ? "Ulanyjylar"
-                                    : dil === "ru"
-                                    ? "Пользователи"
-                                    : "Users"}
-                            </span>
-                        </span>
-                    }
-                >
-                    <Menu.Item className="menuitem menuitem2" key="13">
-                        <Link to="/ActiveUsers">
-                            {dil === "tm"
-                                ? "Ulanyjylar"
-                                : dil === "ru"
-                                ? "Пользователи"
-                                : "Users"}
-                        </Link>
-                    </Menu.Item>
-                    <Menu.Item className="menuitem menuitem2" key="14">
-                        <Link to="/DisActiveUsers">
-                            {dil === "tm"
-                                ? "Aktiw dal ulanyjylar"
-                                : dil === "ru"
-                                ? "Неактивные Пользователи"
-                                : "Disactive Users"}
-                        </Link>
-                    </Menu.Item>
-        </SubMenu> 
+          key="sub7"
+          title={
+            <span>
+              <span className="menuitem">
+                {dil === "tm"
+                  ? "Ulanyjylar"
+                  : dil === "ru"
+                  ? "Пользователи"
+                  : "Users"}
+              </span>
+            </span>
+          }
+        >
+          <Menu.Item className="menuitem menuitem2" key="13">
+            <Link to="/ActiveUsers">
+              {dil === "tm"
+                ? "Ulanyjylar"
+                : dil === "ru"
+                ? "Пользователи"
+                : "Users"}
+            </Link>
+          </Menu.Item>
+          <Menu.Item className="menuitem menuitem2" key="14">
+            <Link to="/DisActiveUsers">
+              {dil === "tm"
+                ? "Aktiw dal ulanyjylar"
+                : dil === "ru"
+                ? "Неактивные Пользователи"
+                : "Disactive Users"}
+            </Link>
+          </Menu.Item>
+        </SubMenu>
       </Menu>
 
       <div className="admin-footer">
